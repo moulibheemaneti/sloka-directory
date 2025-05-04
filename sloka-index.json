@@ -1,0 +1,33 @@
+[
+  {
+    "lord": "ramachandra",
+    "slokas": [
+      {
+        "name": "mangalam",
+        "languages": [
+          "en",
+          "te"
+        ]
+      },
+      {
+        "name": "ramethi",
+        "languages": [
+          "en",
+          "te"
+        ]
+      }
+    ]
+  },
+  {
+    "lord": "shiva",
+    "slokas": [
+      {
+        "name": "lingashtakam",
+        "languages": [
+          "en",
+          "te"
+        ]
+      }
+    ]
+  }
+]
