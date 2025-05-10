@@ -167,6 +167,6 @@ const generateGroupedByLord = () => {
 /** This is the output variable. */
 const data = IS_FLAT_APPROACH ? generateFlatList() : generateGroupedByLord();
 
-writeFileSync(outputPath, JSON.stringify(data, null, 2));
+writeFileSync(outputPath, JSON.stringify(data, null, 2) + '\n');
 
 console.log('Successfully generated sloka-index.json')
