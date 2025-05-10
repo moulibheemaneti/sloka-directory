@@ -16,7 +16,7 @@ jobs:
           node-version: '20' # Adjust to the Node.js version you need
 
       - name: Generate sloka-index.json
-        run: node scripts/generate-sloka-index.js # Adjust the script path as needed
+        run: node scripts/indexer.mjs # Adjust the script path as needed
 
       - name: Configure Git
         run: |
