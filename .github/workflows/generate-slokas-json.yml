@@ -1,0 +1,37 @@
+name: Generate sloka-index.json on Main Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # adjust as needed
+
+      - name: Install dependencies
+        run: npm ci # or `npm install` if not using package-lock
+
+      - name: Run the index generation script
+        run: node scripts/indexer.js
+        # Replace with the actual path to your script
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add sloka-index.json
+          git commit -m "chore: auto-generate sloka-index.json [skip ci]" || echo "No changes to commit"
+          git push
+        env:
+          # This is required for pushing from the GitHub Actions runner
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
