@@ -19,7 +19,7 @@ jobs:
           node-version: '18' # You can change this if needed
 
       - name: Run the index generation script
-        run: node scripts/generateSlokaIndex.js
+        run: node scripts/indexer.js
         # Update the path if your script is elsewhere
 
       - name: Commit and push sloka-index.json
