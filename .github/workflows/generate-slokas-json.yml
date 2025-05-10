@@ -9,15 +9,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Adjust to the Node.js version you need
+
+      - name: Generate sloka-index.json
+        run: node scripts/generate-sloka-index.js # Adjust the script path as needed
+
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-      - name: Update sloka-index.json
+
+      - name: Commit changes
         run: |
-          # Add your logic to update sloka-index.json
           git add sloka-index.json
           git diff --staged --quiet || git commit -m "chore: auto-generate sloka-index.json [skip ci]"
+
       - name: Push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
