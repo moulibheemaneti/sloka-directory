@@ -1,2 +1,2 @@
-name: Run the index generation script
-run: node scripts/indexer.mjs
+- name: Run the index generation script
+  run: node scripts/indexer.mjs
